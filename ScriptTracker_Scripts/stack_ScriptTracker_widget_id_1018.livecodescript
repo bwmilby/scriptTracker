@@ -21,7 +21,7 @@ end mouseDown
 on mouseUp
    set the hilited of me to false
    if sMouseIsDown and the mouseloc is within the rect of me then
-      launch url "https://github.com/bwmilby/lc-misc/blob/master/ScriptTracker/README.md"
+      launch url "https://github.com/bwmilby/scriptTracker/blob/master/README.md"
    end if
    put false into sMouseIsDown
 end mouseUp

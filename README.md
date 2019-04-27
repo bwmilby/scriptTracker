@@ -35,7 +35,7 @@ edit a script it will also get opened in the chosen external editor. If
 an object doesn't have a script yet, then a temporary comment is added 
 to create a file for editing.
 
-There is an option is to have a sync performed before saving the stack 
+There is an option to have a sync performed before saving the stack 
 file. This is done with a front script that intercepts the 
 _SaveStackRequest_ message to initiate the sync if required.
 
@@ -77,3 +77,28 @@ https://forums.livecode.com/viewtopic.php?f=77&t=31079
 ## Script Index
 
 [ScriptTracker.md](./ScriptTracker.md)
+
+## GitHub Tracking Setup
+
+1. Create a repository on GitHub for the project
+1. Clone the empty repository to the development computer
+1. Configure a **.gitignore** file to exclude these folders:
+   * `*_Scripts/diff/*`
+   * `*_Scripts/extra/*`
+1. Move the latest version of the stack into the new repository
+1. Open the stack in LiveCode
+1. Open **ScriptTracker**
+1. Select the stack in ScriptTracker (click the **Select Stack** menu)
+1. _(Optional)_ Adjust the folder names on the **Stack** tab of **Prefs**
+1. _(Optional)_ Open the **Log** window to see results of the exports
+1. Click the **Sync Script** button to do the initial script export
+1. Stage and commit all of the files
+1. Push changes to the remote (GitHub) repository
+
+ScriptTracker can be configured to perform a sync every time the stack is saved.
+At any time you will then have everything on disk in a matching state ready to
+stage and commit to GitHub.
+
+If planning to edit scripts outside of LiveCode, then be sure to enable the
+**Automatic File Import** option. This will have ScriptTracker monitor the script
+folder for changes to the files and automatically perform an import each time.
