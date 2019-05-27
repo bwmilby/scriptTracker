@@ -44,8 +44,8 @@ on selectEditor
    
    answer file "Select text editor..."
    put it into tEditor
-   if tEditor is not empty then
+   --if tEditor is not empty then
       put tEditor into field "Editor" of this card
       saveUpdatedPrefs
-   end if
+   --end if
 end selectEditor
