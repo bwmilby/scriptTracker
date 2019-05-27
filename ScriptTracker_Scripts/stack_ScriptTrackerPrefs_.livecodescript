@@ -17,7 +17,7 @@ end openCard
 
 
 on checkPref pPref, pValue, @xPrefsA, @xPrefsChanged
-   if pValue is empty then exit checkPref
+   --if pValue is empty then exit checkPref
    if pValue is not xPrefsA[pPref] then
       put pValue into xPrefsA[pPref]
       put true into xPrefsChanged
