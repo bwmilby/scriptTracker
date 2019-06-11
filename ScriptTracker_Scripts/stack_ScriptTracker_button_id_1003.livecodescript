@@ -171,7 +171,8 @@ command ensureDirectoryExists \
    put pBasePath & xRelativePath into tFullPath
    if there is not a folder tFullPath then
       try
-         create folder tFullPath
+         --create folder tFullPath
+         revIDEEnsurePath tFullPath
       catch tError
          answer "Error" && tError && "creating folder" && tFullPath
          return "error" for error
