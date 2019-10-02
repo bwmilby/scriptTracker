@@ -116,6 +116,10 @@ command buildMainStackArray \
    end if
    if char -1 of tBasePath is not "/" then put "/" after tBasePath
    
+   # mdw - allow absolute paths if specified
+   if char 1 of xDataA["ExportPath"] is in "/~" then
+      put empty into tBasePath
+   end if
    // get stack level preferences
    put the customProperties[sPropertySet] of stack pStackName into tProps
    
