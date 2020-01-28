@@ -101,7 +101,9 @@ function getDefaultPrefsA
    put kSyncBeforeSave into tPrefsA["SyncBeforeSave"]
    put kAutoExternalEditor into tPrefsA["AutoExternalEditor"]
    put revIDEGetPreference("LCB_textEditor") into tPrefsA["Editor"]
-   
+   repeat for each item tType in "stack,group,card,widget,button,field,other"
+      put false into tPrefsA["exclude" & tType ]
+   end repeat
    return tPrefsA
 end getDefaultPrefsA
 

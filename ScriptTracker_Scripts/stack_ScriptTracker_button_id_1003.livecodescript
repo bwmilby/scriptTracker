@@ -334,10 +334,20 @@ private command _saveScriptFile \
       pObjectLongName /* long name of control      */
    local tCollisionPolicy, tDiff, tFileHash, tFileMissing, tFileNewer
    local tFileScript, tFullFilePath, tHash, tProps, tPropSets
-   local tScript, tScriptChanged
+   local tScript, tScriptChanged, tType
    
    if pObjectLongID is empty then
       put xDataA[pStackName]["longID"] into pObjectLongID
+   end if
+   
+   // exclude scripts based on type
+   put word 1 of pObjectLongID into tType
+   if sPrefsA["exclude" & tType] then
+      exit _saveScriptFile
+   else if tType is not among the items of \
+         "stack,card,group,button,field,widget" and \
+         sPrefsA["excludeOther"] then
+      exit _saveScriptFile
    end if
    
    put _buildFile(pStackName, xDataA, pObjectLongID, pObjectLongName) into tScript
@@ -558,6 +568,9 @@ private function _buildFile \
    
    if (the script of pObjectLongID is not empty) then
       put the script of pObjectLongID into tScript
+   end if
+   if line 1 of tScript contains "exclude" then
+      return empty
    end if
    if (the behavior of pObjectLongID is not empty) then
       put "# Behavior:" && the behavior of pObjectLongID & lf into tBehavior
