@@ -168,10 +168,13 @@ command ensureDirectoryExists \
    if xRelativePath is empty then
       put pMergePath into xRelativePath
    end if
-   put pBasePath & xRelativePath into tFullPath
+   if _pathIsRelative(xRelativePath) then
+      put pBasePath & xRelativePath into tFullPath
+   else
+      put xRelativePath into tFullPath
+   end if
    if there is not a folder tFullPath then
       try
-         --create folder tFullPath
          revIDEEnsurePath tFullPath
       catch tError
          answer "Error" && tError && "creating folder" && tFullPath
@@ -639,6 +642,13 @@ function _q pText
    return quote & pText & quote
 end _q
 
+
+private function _pathIsRelative pPath
+   if pPath begins with "/" then return false
+   if pPath begins with "~" then return false
+   if char 2 of pPath is ":" then return false
+   return true
+end _pathIsRelative
 
 on mouseup
    // enable easy access to this script from the behavior button

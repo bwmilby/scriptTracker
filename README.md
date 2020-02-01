@@ -65,7 +65,9 @@ context lines, custom property set name
 * **Defaults**:  Initial settings when tracking a stack for the first time.
 Paths are relative to the mainstack file.
 * **Stack**:  Settings for the stack currently being tracked.  If the locations
-are changed, new locations will be used on the next sync operation.
+are changed, new locations will be used on the next sync operation.  Paths are
+normally relative to the stack file, but if they start with `/`, `~`, or `_:`
+(second character is a `:`) they will be treated as absolute.
 
 The Log will provide the time taken for an export and list each file 
 that was touched. Some error messages will get displayed there.
