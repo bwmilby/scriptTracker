@@ -371,6 +371,7 @@ private command _saveScriptFile \
       put textDecode(URL ("file:" & tFullFilePath), "UTF-8") into tFileScript
       if tFileNewer then
          put messageDigest(tFileScript, sDigestType) into tFileHash
+         if tFileHash is tProps[sDigestType] then put false into tFileNewer
          if tHash is tFileHash then put false into tFileNewer
       end if
       if tFileNewer then
