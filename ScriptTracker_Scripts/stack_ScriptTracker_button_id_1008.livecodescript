@@ -15,7 +15,8 @@ end menuPick
 on mouseDown pButtonNumber
    local tStackList, tStacks
    
-   if the altkey is down then
+   # altkey-mouseUp selection doesn't work on linux
+   if the altkey is down or the controlkey is down then
       put the mainstacks into tStackList
    else
       put IDEUserMainstacks() into tStackList
