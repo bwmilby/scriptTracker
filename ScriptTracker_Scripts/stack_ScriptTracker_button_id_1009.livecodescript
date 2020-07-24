@@ -66,7 +66,6 @@ on WatchFolder pCallbackHandlerName
    end if
    
    if there is not a folder sFolderToWatch then
-      # fixed typo "anwswer"
       answer "Folder does not exist: " & _q(sFolderToWatch)
       set the hilite of me to false
       exit WatchFolder
