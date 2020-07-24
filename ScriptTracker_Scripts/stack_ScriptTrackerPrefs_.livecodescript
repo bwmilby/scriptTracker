@@ -26,7 +26,7 @@ end checkPref
 
 
 on preOpenCard
-   if the short name of this card is "Stack" then
+   if the short name of this card is among the items of "Stack,Exclusions" then
       put field "StackName" of stack "ScriptTracker" into sStackName
       if there is not a stack sStackName then
          go card "Defaults"
@@ -52,7 +52,7 @@ end closeCard
 
 on displayPrefs
    repeat for each item tPref in the uCheckBoxes of this card
-      set the hilite of button tPref of this card to sPrefsA[tPref]
+      set the hilite of button tPref of this card to (sPrefsA[tPref] is true)
    end repeat
    repeat for each item tPref in the uTextFields of this card
       set the text of field tPref of this card to sPrefsA[tPref]
@@ -79,7 +79,7 @@ on saveUpdatedPrefs
             sPrefsA, tPrefsChanged
    end repeat
    if tPrefsChanged then
-      if the short name of this card is "Stack" then
+      if the short name of this card is among the items of "Stack,Exclusions" then
          if there is a stack sStackName then
             set the customProperties[getPref("PropertySet")] of \
                   stack sStackName to sPrefsA
@@ -137,6 +137,10 @@ on reinitializeStackPrefs
    put merge(tPrefsA["DiffPath"]) into sPrefsA["DiffPath"]
    put merge(tPrefsA["ExtraPath"]) into sPrefsA["ExtraPath"]
    put tPrefsA["CollisionPolicy"] into sPrefsA["CollisionPolicy"]
+   
+   repeat for each item tType in "stack,group,card,widget,button,field,other"
+      put false into tPrefsA["exclude" & tType ]
+   end repeat
    
    set the customProperties[getPref("PropertySet")] of stack sStackName \
          to sPrefsA

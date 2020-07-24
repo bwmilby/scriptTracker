@@ -68,6 +68,9 @@ Paths are relative to the mainstack file.
 are changed, new locations will be used on the next sync operation.  Paths are
 normally relative to the stack file, but if they start with `/`, `~`, or `_:`
 (second character is a `:`) they will be treated as absolute.
+* **Exclusions**:  Settings for the stack currently being tracked to exclude
+script export by object type.  If _exclude_ is found on the first line of a
+script, then it will not be exported.
 
 The Log will provide the time taken for an export and list each file 
 that was touched. Some error messages will get displayed there.
