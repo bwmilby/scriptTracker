@@ -1,0 +1,1 @@
+stack "0d81570b-6fa8-4fa9-9e88-1a9bf55b06d1"on mouseUp   topLevel this stack   choose browse tool   if the mode of stack "ScriptTrackerLog" is 4 then      toplevel stack "ScriptTrackerLog"   end if   if the mode of stack "ScriptTrackerPrefs" is 4 then      toplevel stack "ScriptTrackerPrefs"   end if   go card "Tracker"end mouseUp

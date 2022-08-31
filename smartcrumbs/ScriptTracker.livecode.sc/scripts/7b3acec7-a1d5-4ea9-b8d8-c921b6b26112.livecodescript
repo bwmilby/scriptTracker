@@ -1,0 +1,1 @@
+stack "7b3acec7-a1d5-4ea9-b8d8-c921b6b26112"on mouseEnter   set the hilite of button "StackMenu" to trueend mouseEnter

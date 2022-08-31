@@ -1,0 +1,1 @@
+stack "afa47db6-630c-47de-9217-880812f69c86"on hiliteChanged   go card the hilitedItemNames of meend hiliteChanged

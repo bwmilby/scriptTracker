@@ -1,0 +1,1 @@
+stack "ea723a80-c069-467d-9a44-4cc62e436732"on mouseUp   palette this stack   if the mode of stack "ScriptTrackerLog" is 1 then      palette stack "ScriptTrackerLog"   end if   if the mode of stack "ScriptTrackerPrefs" is 1 then      palette stack "ScriptTrackerPrefs"   end if   go card "Tracker"end mouseUp

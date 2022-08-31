@@ -1,0 +1,1 @@
+stack "c3fa2d4f-c07a-4cbc-9ce9-b329cc216b9d"on mouseUp   palette stack "ScriptTrackerLog"   set the vscroll of field "log" of stack "ScriptTrackerLog" to \         the formattedHeight of field "log" of stack "ScriptTrackerLog"end mouseUp
