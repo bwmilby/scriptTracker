@@ -169,7 +169,11 @@ command ensureDirectoryExists \
       put pMergePath into xRelativePath
    end if
    if _pathIsRelative(xRelativePath) then
-      put pBasePath & xRelativePath into tFullPath
+      if char 1 of xRelativePath is "~" then
+         put specialFolderPath("home") & xRelativePath into tFullPath
+      else
+         put pBasePath & xRelativePath into tFullPath
+      end if
    else
       put xRelativePath into tFullPath
    end if
